@@ -1,4 +1,4 @@
-// import * as typography from './typography';
+import * as typography from './typography';
 
 export const theme = {
   colors: {
@@ -65,5 +65,5 @@ export const theme = {
       noturnoC2: '#051829',
     },
   },
-  // typography, //TODO: Fazer depois
+  typography,
 };

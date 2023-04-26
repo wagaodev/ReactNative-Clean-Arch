@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import * as S from './styles';
 
 export const Starter = () => {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ alignSelf: 'center' }}>Hello Starter</Text>
-    </View>
+    <S.Container>
+      <S.Title>Hello Starter !!</S.Title>
+    </S.Container>
   );
 };
