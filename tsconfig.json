@@ -1,13 +1,24 @@
 {
   "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
+    "jsx": "react",
     "allowJs": false,
+    "target": "ES2019",
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "baseUrl": "./",
+    "baseUrl": "./src",
+    "rootDir": "./src",
+    "paths": {
+      "@/*": ["*"]
+    },
     "checkJs": false,
     "declaration": true,
-    "forceConsistentCasingInFileNames": true,
     "lib": ["esnext"],
     "noEmit": false,
     "noFallthroughCasesInSwitch": true,
@@ -19,10 +30,9 @@
     "noUnusedParameters": true,
     "outDir": "./lib",
     "sourceMap": true,
-    "skipLibCheck": true,
-    "types": ["styled-components-react-native", "jest"],
-    "isolatedModules": false
+    "isolatedModules": false,
+    "types": ["jest", "node", "styled-components"]
   },
-  "include": ["./src", "@types"],
+  "include": ["src/**/*", "test/**/*"],
   "exclude": ["node_modules"]
 }
