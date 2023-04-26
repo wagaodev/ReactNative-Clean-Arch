@@ -1,0 +1,28 @@
+{
+  "extends": "@tsconfig/react-native/tsconfig.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "baseUrl": "./",
+    "checkJs": false,
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["esnext"],
+    "noEmit": false,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": false,
+    "noImplicitReturns": true,
+    "noImplicitUseStrict": false,
+    "noStrictGenericChecks": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./lib",
+    "sourceMap": true,
+    "skipLibCheck": true,
+    "types": ["styled-components-react-native", "jest"],
+    "isolatedModules": false
+  },
+  "include": ["./src", "@types"],
+  "exclude": ["node_modules"]
+}
