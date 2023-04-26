@@ -1,1 +1,1 @@
-export * from './starter';
+export * from './Starter';
