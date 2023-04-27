@@ -1,7 +1,9 @@
-import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
 export type RootStackParamList = {
   Starter: undefined;
+  Login: undefined;
 };
 
-export type TOnboarding = NativeStackScreenProps<RootStackParamList, 'Starter'>;
+export type TStarter = NativeStackScreenProps<RootStackParamList, 'Starter'>;
+export type TLogin = NativeStackScreenProps<RootStackParamList, 'Login'>;
