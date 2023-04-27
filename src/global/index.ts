@@ -3,7 +3,7 @@ import * as typography from './typography';
 export const theme = {
   colors: {
     base: {
-      black: '#2E2E2E',
+      black: '#1111',
       gray700: '#525252',
       gray500: '#AFAFAF',
       gray300: '#E0E0E0',
@@ -11,11 +11,16 @@ export const theme = {
       gray100: '#F7F7F7',
       white: '#FFFFFF',
     },
-    new: {
-      primary: '#04b3e8',
-      secondary: '#04cfdb',
-      tertiary: '#d3f3f9',
-      header: '#9bdfe8',
+    system: {
+      logo: '#0c1314',
+      background: '#e2e5e6',
+      green1: '#0aa89c',
+      green2: '#0d6c65',
+      green3: '#243f3f',
+      green4: '#164c54',
+      gray1: '#64696b',
+      gray2: '#8c8c8f',
+      gray3: '#75848c',
     },
     transparency: {
       dark75: 'rgba(0, 0, 0, 0.75)',
@@ -53,7 +58,8 @@ export const theme = {
     },
     gradients: {
       principalC1: '#3F92F7',
-      principalC2: '#62C9CB',
+      principalC2: '#007bff',
+      principalC3: '#62C9CB',
       choqueC1: '#3D93F7',
       choqueC2: '#5BC9DC',
       eletricoC1: '#CCFC50',
