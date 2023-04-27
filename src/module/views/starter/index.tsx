@@ -1,10 +1,13 @@
 import React from 'react';
 import * as S from './styles';
+import { TouchableOpacity } from 'react-native';
 
-export const Starter = () => {
+export const Starter = ({ navigation }) => {
   return (
     <S.Container>
-      <S.Title>Hello Starter !!</S.Title>
+      <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+        <S.Title>Navegar</S.Title>
+      </TouchableOpacity>
     </S.Container>
   );
 };
