@@ -7,22 +7,7 @@ const { Navigator, Screen } = createNativeStackNavigator<RootStackParamList>();
 
 export const RootModuleNavigator = () => {
   return (
-    <Navigator
-    // screenOptions={{
-    //   headerLeft: () => <GoBack />,
-    //   contentStyle: {
-    //     backgroundColor: colors.white,
-    //   },
-    //   headerBackTitleVisible: false,
-    //   headerStyle: {
-    //     backgroundColor: colors.primary500,
-    //   },
-    //   headerTintColor: colors.white,
-    //   headerTitleStyle: {
-    //     fontWeight: 'bold',
-    //   },
-    // }}
-    >
+    <Navigator initialRouteName='Login'>
       <Screen
         name='Starter'
         component={Starter}
@@ -34,7 +19,7 @@ export const RootModuleNavigator = () => {
         name='Login'
         component={Login}
         options={{
-          headerTitle: 'Home',
+          headerShown: false,
         }}
       />
     </Navigator>
