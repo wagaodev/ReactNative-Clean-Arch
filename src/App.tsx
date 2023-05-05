@@ -1,17 +1,17 @@
 import React from 'react';
 import { StatusBar } from 'react-native';
+import { NativeBaseProvider } from 'native-base';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { RootModuleNavigator } from './module/navigation';
 import { NavigationContainer } from '@react-navigation/native';
 import { ThemeProvider } from 'styled-components/native';
-import { Provider as PaperProvider } from 'react-native-paper';
 
 import { theme } from './global';
 
 export const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <PaperProvider>
+      <NativeBaseProvider>
         <SafeAreaProvider>
           <NavigationContainer>
             <RootModuleNavigator />
@@ -22,7 +22,7 @@ export const App = () => {
             />
           </NavigationContainer>
         </SafeAreaProvider>
-      </PaperProvider>
+      </NativeBaseProvider>
     </ThemeProvider>
   );
 };
