@@ -1,10 +1,9 @@
 import styled from 'styled-components/native';
-import { Dimensions, Image, TextInput } from 'react-native';
+import { Dimensions, TextInput } from 'react-native';
 import { theme } from '../../../global';
+import { Button } from 'react-native-paper';
 
 const height = Dimensions.get('screen').height;
-const image =
-  'https://o.remove.bg/downloads/b7875370-7f55-4ebe-b103-5f1549952243/gaming-logo-cover-removebg-preview.png';
 
 export const LoginContainer = styled.View`
   flex: 1;
@@ -38,7 +37,7 @@ export const LoginInput = styled(TextInput).attrs({
   color: ${theme.colors.base.white};
 `;
 
-export const LoginButton = styled.TouchableOpacity`
+export const LoginButton = styled(Button)`
   background-color: ${theme.colors.system.green1};
   border-radius: 4px;
   padding: 8px 16px;
@@ -64,11 +63,3 @@ export const RegisterButton = styled.TouchableOpacity`
 export const RegisterButtonText = styled.Text`
   color: ${theme.colors.system.green1};
 `;
-
-export const Logo = styled(Image).attrs({
-  source: {
-    uri: image,
-  },
-  height: 200,
-  width: 200,
-})``;
