@@ -1,27 +1,33 @@
 import React, { useState } from 'react';
 import { TLoginTemplate } from './types';
 
+import { Logo } from '../../assets/svg';
+
 import * as S from './styles';
 
 export const LoginTemplate = ({
   handleSubmit,
   handleRegister,
   handleForgetPass,
+  value,
+  onChange,
 }: TLoginTemplate) => {
-  const [password, setPassword] = useState('');
-
+  const [showPassword, setShowPassword] = useState(false);
+  const isHidden = () => {
+    setShowPassword(!showPassword);
+  };
   return (
     <S.LoginContainer>
       <S.ContainerLogo>
-        <S.Logo />
+        <Logo width='300' height='300' />
       </S.ContainerLogo>
       <S.LoginForm>
         <S.LoginInput placeholder='E-mail' />
         <S.LoginInput
-          secureTextEntry
+          secureTextEntry={isHidden}
           placeholder='Password'
-          value={password}
-          onChangeText={(text) => setPassword(text)}
+          value={value}
+          onChangeText={onChange}
         />
         <S.LoginButton onPress={handleSubmit}>
           <S.LoginButtonText>Entrar</S.LoginButtonText>

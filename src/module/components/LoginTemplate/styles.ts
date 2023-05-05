@@ -31,10 +31,11 @@ export const LoginInput = styled(TextInput).attrs({
   placeholderTextColor: 'gray',
   autoCapitalize: 'none',
 })`
-  border: 1px solid #ccc;
+  border: 1px solid ${theme.colors.base.gray300};
   border-radius: 4px;
   padding: 8px 16px;
   margin-bottom: 16px;
+  color: ${theme.colors.base.white};
 `;
 
 export const LoginButton = styled.TouchableOpacity`
