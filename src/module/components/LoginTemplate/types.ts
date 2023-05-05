@@ -1,5 +1,9 @@
 export type TLoginTemplate = {
-  handleSubmit: () => Promise<void>;
+  value: string;
+  onChange: () => string;
+  handleSubmit: () => void;
   handleRegister: () => void;
   handleForgetPass: () => void;
+  handleLoading: boolean;
+  disabled: boolean;
 };
