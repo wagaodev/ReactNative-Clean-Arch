@@ -5,4 +5,5 @@ export type TLoginTemplate = {
   handleRegister: () => void;
   handleForgetPass: () => void;
   handleLoading: boolean;
+  disabled: boolean;
 };
