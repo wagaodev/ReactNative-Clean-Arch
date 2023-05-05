@@ -12,6 +12,7 @@ export const LoginTemplate = ({
   handleLoading = false,
   value,
   onChange,
+  disabled = false,
 }: TLoginTemplate) => {
   return (
     <S.LoginContainer>
@@ -26,7 +27,11 @@ export const LoginTemplate = ({
           value={value}
           onChangeText={onChange}
         />
-        <S.LoginButton loading={handleLoading} onPress={handleSubmit}>
+        <S.LoginButton
+          isDisabled={disabled}
+          isLoading={handleLoading}
+          onPress={handleSubmit}
+        >
           <S.LoginButtonText>Entrar</S.LoginButtonText>
         </S.LoginButton>
 

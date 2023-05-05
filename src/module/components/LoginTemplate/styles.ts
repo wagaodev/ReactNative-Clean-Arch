@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import { Dimensions, TextInput } from 'react-native';
 import { theme } from '../../../global';
-import { Button } from 'react-native-paper';
+import { Button } from 'native-base';
 
 const height = Dimensions.get('screen').height;
 
@@ -37,15 +37,19 @@ export const LoginInput = styled(TextInput).attrs({
   color: ${theme.colors.base.white};
 `;
 
-export const LoginButton = styled(Button)`
-  background-color: ${theme.colors.system.green1};
-  border-radius: 4px;
-  padding: 8px 16px;
+export const LoginButton = styled(Button).attrs({
+  spinnerPlacement: 'end',
+  isLoadingText: 'Entrando',
+})`
+  background-color: ${theme.colors.transparency.dark50};
+  border-radius: 12px;
+  padding: 16px;
   margin-bottom: 16px;
 `;
 
 export const LoginButtonText = styled.Text`
-  color: ${theme.colors.system.background};
+  font-size: 18px;
+  color: ${theme.colors.system.green1};
   align-self: center;
 `;
 
