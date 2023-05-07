@@ -4,15 +4,16 @@ import * as S from './styles';
 import { Alert } from 'react-native';
 import { createUser, TUser } from '../../store';
 import { HandleError } from '../../components';
+import { TLogin } from '../../navigation/types';
 
-export const Login = ({ navigation }) => {
+export const Login = ({ navigation }: TLogin) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [disabled, setDisabled] = useState<boolean>(false);
   const [password, setPassword] = useState<TUser['password']>('');
   const [username, setUsername] = useState<TUser['username']>('');
   const addUser = createUser((state) => state.addUser);
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     setLoading(true);
     setDisabled(true);
     try {
@@ -25,9 +26,7 @@ export const Login = ({ navigation }) => {
     } catch (e) {
       return HandleError(e);
     }
-    navigation.navigate('Home', {
-      username,
-    });
+    return navigation.navigate('Home');
   };
 
   const handleAlert = (msg: string) => {

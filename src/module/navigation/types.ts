@@ -5,5 +5,5 @@ export type RootStackParamList = {
   Login: undefined;
 };
 
-export type TStarter = NativeStackScreenProps<RootStackParamList, 'Home'>;
+export type THome = NativeStackScreenProps<RootStackParamList, 'Home'>;
 export type TLogin = NativeStackScreenProps<RootStackParamList, 'Login'>;
