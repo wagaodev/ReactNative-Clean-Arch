@@ -1,4 +1,4 @@
-# React Native Clean Arquitecture
+# React Native + Zustand + React Query and Clean Arquitecture.
 
 ## This is a React Native project using Clean Architecture as the main architecture, and below are all the design patterns used to create this structure.
 
@@ -53,11 +53,13 @@
 
 - Typescript
 - React Native
-- Recoil
 - React Testing Library
-- Jest
 - Axios
 - Styled Components
+- React Query
+- Zustand
+- Recoil
+- Jest
 - Git
 - Yarn
 - Travis CI
@@ -71,7 +73,6 @@
 
 - Functional Components
 - UseState
-- UseContext
 - UseEffect
 - UseRef
 - UseParams
@@ -86,12 +87,11 @@
 > ## Features of Git
 
 - Alias
-- Log Personalizado
+- Custom logs
 - Branch
 - Reset
 - Amend
 - Tag
-- Tag Anotada
 - Stash
 - Rebase
 - Merge
@@ -104,23 +104,23 @@
 
 > ## Features of Typescript
 
-- POO Avançado
+- POO Advanced.
 - Interface
 - Type Alias
 - Namespace
 - Module
 - Utility Types
-- Modularização de Paths
+- Modularization of Paths
 - Build
 - Deploy
 - Generics
 
 > ## Features of Tests
 
-- Testes Unitários
-- Testes de Integração
-- Testes e2e
-- Cobertura de Testes
+- Unit Tests
+- Integration Tests
+- End-to-end Tests (e2e)
+- Test Coverage
 - Test Doubles
 - Mocks
 - Stubs
