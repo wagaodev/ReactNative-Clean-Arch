@@ -1,6 +1,6 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Starter, Login } from '../views';
+import { Home, Login } from '../views';
 import { RootStackParamList } from './types';
 
 const { Navigator, Screen } = createNativeStackNavigator<RootStackParamList>();
@@ -9,8 +9,8 @@ export const RootModuleNavigator = () => {
   return (
     <Navigator initialRouteName='Login'>
       <Screen
-        name='Starter'
-        component={Starter}
+        name='Home'
+        component={Home}
         options={{
           headerTitle: 'Home',
         }}

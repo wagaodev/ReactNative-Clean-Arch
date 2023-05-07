@@ -12,7 +12,7 @@ export const Login = ({ navigation }) => {
   const [username, setUsername] = useState<TUser['username']>('');
   const addUser = createUser((state) => state.addUser);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     setLoading(true);
     setDisabled(true);
     try {
@@ -25,7 +25,9 @@ export const Login = ({ navigation }) => {
     } catch (e) {
       return HandleError(e);
     }
-    return navigation.navigate('Home');
+    navigation.navigate('Home', {
+      username,
+    });
   };
 
   const handleAlert = (msg: string) => {
