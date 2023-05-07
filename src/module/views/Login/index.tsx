@@ -4,9 +4,9 @@ import * as S from './styles';
 import { Alert } from 'react-native';
 
 export const Login = () => {
-  const [loading, setLoading] = useState(false);
-  const [disabled, setDisabled] = useState(false);
-  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState<boolean>(false);
+  const [disabled, setDisabled] = useState<boolean>(false);
+  const [password, setPassword] = useState<string>('');
 
   const handleAlert = (msg: string) => {
     Alert.alert(msg);
@@ -14,7 +14,7 @@ export const Login = () => {
   return (
     <S.Login
       disabled={disabled}
-      handleLoading={loading}
+      loading={loading}
       value={password}
       onChange={(password) => setPassword(password)}
       handleSubmit={() => handleAlert('Clicou em entrar')}
