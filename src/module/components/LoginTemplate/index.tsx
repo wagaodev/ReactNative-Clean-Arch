@@ -10,8 +10,10 @@ export const LoginTemplate = ({
   handleSubmit,
   handleRegister,
   handleForgetPass,
-  value,
-  onChange,
+  password,
+  username,
+  onChangePassword,
+  onChangeUsername,
   disabled,
   loading = false,
 }: TLoginTemplate) => {
@@ -21,12 +23,16 @@ export const LoginTemplate = ({
         <Logo width='300' height='300' />
       </S.ContainerLogo>
       <S.LoginForm>
-        <S.LoginInput placeholder='E-mail' />
+        <S.LoginInput
+          placeholder='E-mail'
+          value={username}
+          onChangeText={onChangeUsername}
+        />
         <S.LoginInput
           secureTextEntry
           placeholder='Password'
-          value={value}
-          onChangeText={onChange}
+          value={password}
+          onChangeText={onChangePassword}
         />
         <S.LoginButton
           disabled={disabled}
