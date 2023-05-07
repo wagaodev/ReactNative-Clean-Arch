@@ -1,7 +1,6 @@
 import styled from 'styled-components/native';
-import { Dimensions, TextInput } from 'react-native';
+import { Dimensions, TextInput, TouchableOpacity } from 'react-native';
 import { theme } from '../../../global';
-import { Button } from 'native-base';
 
 const height = Dimensions.get('screen').height;
 
@@ -37,10 +36,8 @@ export const LoginInput = styled(TextInput).attrs({
   color: ${theme.colors.base.white};
 `;
 
-export const LoginButton = styled(Button).attrs({
-  spinnerPlacement: 'end',
-  isLoadingText: 'Entrando',
-})`
+export const LoginButton = styled(TouchableOpacity)<{ disabled: boolean }>`
+  opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   background-color: ${theme.colors.transparency.dark50};
   border-radius: 12px;
   padding: 16px;

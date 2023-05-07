@@ -4,6 +4,6 @@ export type TLoginTemplate = {
   handleSubmit: () => void;
   handleRegister: () => void;
   handleForgetPass: () => void;
-  handleLoading: boolean;
   disabled: boolean;
+  loading: boolean;
 };
