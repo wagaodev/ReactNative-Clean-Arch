@@ -6,81 +6,101 @@ describe('LoginTemplate', () => {
   const handleSubmit = jest.fn();
   const handleRegister = jest.fn();
   const handleForgetPass = jest.fn();
-  const value = 'password';
-  const onChange = jest.fn();
-  const disabled = false;
-  const loading = false;
+  const onChangeUsername = jest.fn();
+  const onChangePassword = jest.fn();
 
-  test('should render email and password inputs', () => {
-    const { getByPlaceholderText } = render(
+  test('renders the component with initial props', () => {
+    const { getByPlaceholderText, getByText } = render(
       <LoginTemplate
         handleSubmit={handleSubmit}
         handleRegister={handleRegister}
         handleForgetPass={handleForgetPass}
-        value={value}
-        onChange={onChange}
-        disabled={disabled}
-        loading={loading}
+        password=''
+        username=''
+        onChangePassword={onChangePassword}
+        onChangeUsername={onChangeUsername}
+        disabled={false}
+        loading={false}
       />,
     );
 
-    expect(getByPlaceholderText('E-mail')).not.toBeNull();
-    expect(getByPlaceholderText('Password')).not.toBeNull();
+    const emailInput = getByPlaceholderText('E-mail');
+    const passwordInput = getByPlaceholderText('Password');
+    const loginButton = getByText('Entrar');
+    const forgetPassButton = getByText('Esqueci minha senha');
+    const registerButton = getByText(
+      'Caso você ainda não tenha conta. Registrar-se aqui!',
+    );
+
+    expect(emailInput).toBeDefined();
+    expect(passwordInput).toBeDefined();
+    expect(loginButton).toBeDefined();
+    expect(forgetPassButton).toBeDefined();
+    expect(registerButton).toBeDefined();
   });
 
-  test('should call handleSubmit when clicking the login button', () => {
+  test('calls handleSubmit when the login button is pressed', () => {
     const { getByText } = render(
       <LoginTemplate
         handleSubmit={handleSubmit}
         handleRegister={handleRegister}
         handleForgetPass={handleForgetPass}
-        value={value}
-        onChange={onChange}
-        disabled={disabled}
-        loading={loading}
+        password='password'
+        username='test@test.com'
+        onChangePassword={onChangePassword}
+        onChangeUsername={onChangeUsername}
+        disabled={false}
+        loading={false}
       />,
     );
 
-    fireEvent.press(getByText('Entrar'));
+    const loginButton = getByText('Entrar');
+    fireEvent.press(loginButton);
 
     expect(handleSubmit).toHaveBeenCalledTimes(1);
   });
 
-  test('should call handleForgetPass when clicking the forget password button', () => {
+  test('calls handleRegister when the register button is pressed', () => {
     const { getByText } = render(
       <LoginTemplate
         handleSubmit={handleSubmit}
         handleRegister={handleRegister}
         handleForgetPass={handleForgetPass}
-        value={value}
-        onChange={onChange}
-        disabled={disabled}
-        loading={loading}
+        password='password'
+        username='test@test.com'
+        onChangePassword={onChangePassword}
+        onChangeUsername={onChangeUsername}
+        disabled={false}
+        loading={false}
       />,
     );
 
-    fireEvent.press(getByText('Esqueci minha senha'));
-
-    expect(handleForgetPass).toHaveBeenCalledTimes(1);
-  });
-
-  test('should call handleRegister when clicking the register button', () => {
-    const { getByText } = render(
-      <LoginTemplate
-        handleSubmit={handleSubmit}
-        handleRegister={handleRegister}
-        handleForgetPass={handleForgetPass}
-        value={value}
-        onChange={onChange}
-        disabled={disabled}
-        loading={loading}
-      />,
+    const registerButton = getByText(
+      'Caso você ainda não tenha conta. Registrar-se aqui!',
     );
-
-    fireEvent.press(
-      getByText('Caso você ainda não tenha conta. Registrar-se aqui!'),
-    );
+    fireEvent.press(registerButton);
 
     expect(handleRegister).toHaveBeenCalledTimes(1);
+  });
+
+  test('calls handleForgetPass when the forget password button is pressed', () => {
+    const { getByText } = render(
+      <LoginTemplate
+        handleSubmit={handleSubmit}
+        handleRegister={handleRegister}
+        handleForgetPass={handleForgetPass}
+        password='password'
+        username='test@test.com'
+        onChangePassword={onChangePassword}
+        onChangeUsername={onChangeUsername}
+        disabled={false}
+        loading={false}
+      />,
+    );
+
+    const forgetPassButton = getByText('Esqueci minha senha');
+    fireEvent.press(forgetPassButton);
+
+    expect(handleForgetPass).toHaveBeenCalledTimes(1);
   });
 });
