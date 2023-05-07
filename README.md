@@ -1,4 +1,4 @@
-# React Native Clean Arquitecture
+# React Native + Zustand + React Query and Clean Arquitecture.
 
 ## This is a React Native project using Clean Architecture as the main architecture, and below are all the design patterns used to create this structure.
 
@@ -53,11 +53,13 @@
 
 - Typescript
 - React Native
-- Recoil
 - React Testing Library
-- Jest
 - Axios
 - Styled Components
+- React Query
+- Zustand
+- Recoil
+- Jest
 - Git
 - Yarn
 - Travis CI
@@ -71,7 +73,6 @@
 
 - Functional Components
 - UseState
-- UseContext
 - UseEffect
 - UseRef
 - UseParams
@@ -86,12 +87,11 @@
 > ## Features of Git
 
 - Alias
-- Log Personalizado
+- Custom logs
 - Branch
 - Reset
 - Amend
 - Tag
-- Tag Anotada
 - Stash
 - Rebase
 - Merge
@@ -104,23 +104,23 @@
 
 > ## Features of Typescript
 
-- POO Avançado
+- POO Advanced.
 - Interface
 - Type Alias
 - Namespace
 - Module
 - Utility Types
-- Modularização de Paths
+- Modularization of Paths
 - Build
 - Deploy
 - Generics
 
 > ## Features of Tests
 
-- Testes Unitários
-- Testes de Integração
-- Testes e2e
-- Cobertura de Testes
+- Unit Tests
+- Integration Tests
+- End-to-end Tests (e2e)
+- Test Coverage
 - Test Doubles
 - Mocks
 - Stubs
@@ -128,32 +128,33 @@
 - Fakes
 - Dummies
 
-## ⚙️ Configuração do ambiente
+## ⚙️ Environment Setup
 
-##### Antes de começar a trabalhar no projeto, você precisa ter as seguintes ferramentas instaladas:
+##### Before starting to work on the project, you need to have the following tools installed:
 
 - Node.js
 - Yarn
 
-##### Instalação das dependências
+##### Installing Dependencies
 
-Execute o seguinte comando para instalar todas as dependências do projeto:
+Run the following command to install all project dependencies:
 
 `yarn install`
 
-#### Executando o aplicativo
+#### Running the Application
 
-Para executar o aplicativo, execute o seguinte comando:
+To run the application, run the following command:
 
 `yarn ios`
 
-Isso iniciará o Metro Bundler e abrirá o App no <strong>IOS</strong>. Caso você queira executar
-isto no <strong>Android </strong> rode o seguinte comando
+This will start the Metro Bundler and open the app on <strong>iOS</strong>. If you want to run it on <strong>Android</strong>, run the following command:
 
 `yarn android`
 
-#### Executando os testes
+#### Running Tests
 
-Para executar os testes, execute o seguinte comando:
+To run the tests, run the following command:
 
 `yarn test`
+
+More instructions are available within the package.json file where there are more scripts.

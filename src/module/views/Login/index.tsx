@@ -2,11 +2,32 @@ import React, { useState } from 'react';
 
 import * as S from './styles';
 import { Alert } from 'react-native';
+import { createUser, TUser } from '../../store';
+import { HandleError } from '../../components';
+import { TLogin } from '../../navigation/types';
 
-export const Login = () => {
-  const [loading, setLoading] = useState(false);
-  const [disabled, setDisabled] = useState(false);
-  const [password, setPassword] = useState('');
+export const Login = ({ navigation }: TLogin) => {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [disabled, setDisabled] = useState<boolean>(false);
+  const [password, setPassword] = useState<TUser['password']>('');
+  const [username, setUsername] = useState<TUser['username']>('');
+  const addUser = createUser((state) => state.addUser);
+
+  const handleSubmit = () => {
+    setLoading(true);
+    setDisabled(true);
+    try {
+      addUser({
+        username,
+        password,
+      });
+      setLoading(false);
+      setDisabled(false);
+    } catch (e) {
+      return HandleError(e);
+    }
+    return navigation.navigate('Home');
+  };
 
   const handleAlert = (msg: string) => {
     Alert.alert(msg);
@@ -14,10 +35,12 @@ export const Login = () => {
   return (
     <S.Login
       disabled={disabled}
-      handleLoading={loading}
-      value={password}
-      onChange={(password) => setPassword(password)}
-      handleSubmit={() => handleAlert('Clicou em entrar')}
+      loading={loading}
+      password={password}
+      onChangePassword={(password) => setPassword(password)}
+      username={username}
+      onChangeUsername={(username) => setUsername(username)}
+      handleSubmit={handleSubmit}
       handleForgetPass={() => handleAlert('Esqueceu sua senha??')}
       handleRegister={() => handleAlert('Clicou em registrar')}
     />
