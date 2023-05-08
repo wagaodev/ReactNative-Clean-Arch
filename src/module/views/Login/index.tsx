@@ -1,48 +1,64 @@
 import React, { useState } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 
 import * as S from './styles';
 import { Alert } from 'react-native';
 import { createUser, TUser } from '../../store';
 import { HandleError } from '../../components';
-import { TLogin } from '../../navigation/types';
 
-export const Login = ({ navigation }: TLogin) => {
+export const Login = ({ navigation }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [disabled, setDisabled] = useState<boolean>(false);
-  const [password, setPassword] = useState<TUser['password']>('');
-  const [username, setUsername] = useState<TUser['username']>('');
   const addUser = createUser((state) => state.addUser);
 
-  const handleSubmit = () => {
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Email inválido').required('Email é obrigatório'),
+    password: Yup.string().required('Senha é obrigatória'),
+  });
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema,
+    onSubmit: async (values) => handleSubmit(values),
+  });
+
+  const handleSubmit = (values: { email: string; password: string }) => {
     setLoading(true);
     setDisabled(true);
     try {
       addUser({
-        username,
-        password,
+        email: values.email,
+        password: values.password,
       });
       setLoading(false);
       setDisabled(false);
     } catch (e) {
       return HandleError(e);
     }
-    return navigation.navigate('Home');
+    navigation.navigate('Home');
   };
 
   const handleAlert = (msg: string) => {
     Alert.alert(msg);
   };
+
   return (
     <S.Login
       disabled={disabled}
       loading={loading}
-      password={password}
-      onChangePassword={(password) => setPassword(password)}
-      username={username}
-      onChangeUsername={(username) => setUsername(username)}
-      handleSubmit={handleSubmit}
+      password={formik.values.password}
+      onChangePassword={formik.handleChange('password')}
+      email={formik.values.email}
+      onChangeEmail={formik.handleChange('email')}
+      handleSubmit={formik.handleSubmit}
       handleForgetPass={() => handleAlert('Esqueceu sua senha??')}
       handleRegister={() => handleAlert('Clicou em registrar')}
+      emailError={formik.touched.email && formik.errors.email}
+      passwordError={formik.touched.password && formik.errors.password}
     />
   );
 };

@@ -36,6 +36,13 @@ export const LoginInput = styled(TextInput).attrs({
   color: ${theme.colors.base.white};
 `;
 
+export const ValidationError = styled.Text`
+  color: red;
+  font-size: 12px;
+  margin-top: 2px;
+  margin-bottom: 10px;
+`;
+
 export const LoginButton = styled(TouchableOpacity)<{ disabled: boolean }>`
   opacity: ${({ disabled }) => (disabled ? 0.5 : 1)};
   background-color: ${theme.colors.transparency.dark50};

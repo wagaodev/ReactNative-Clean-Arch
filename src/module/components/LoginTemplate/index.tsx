@@ -11,11 +11,13 @@ export const LoginTemplate = ({
   handleRegister,
   handleForgetPass,
   password,
-  username,
+  email,
   onChangePassword,
-  onChangeUsername,
+  onChangeEmail,
   disabled,
   loading = false,
+  emailError,
+  passwordError,
 }: TLoginTemplate) => {
   return (
     <S.LoginContainer>
@@ -25,15 +27,20 @@ export const LoginTemplate = ({
       <S.LoginForm>
         <S.LoginInput
           placeholder='E-mail'
-          value={username}
-          onChangeText={onChangeUsername}
+          value={email}
+          onChangeText={onChangeEmail}
+          autoCapitalize='none'
         />
+        {emailError && <S.ValidationError>{emailError}</S.ValidationError>}
         <S.LoginInput
           secureTextEntry
           placeholder='Password'
           value={password}
           onChangeText={onChangePassword}
         />
+        {passwordError && (
+          <S.ValidationError>{passwordError}</S.ValidationError>
+        )}
         <S.LoginButton
           disabled={disabled}
           loading={loading}
