@@ -27,6 +27,7 @@ export const LoginTemplate = ({
       <S.LoginForm>
         <S.LoginInput
           placeholder='E-mail'
+          data-testid={'email-input'}
           value={email}
           onChangeText={onChangeEmail}
           autoCapitalize='none'
@@ -34,6 +35,7 @@ export const LoginTemplate = ({
         {emailError && <S.ValidationError>{emailError}</S.ValidationError>}
         <S.LoginInput
           secureTextEntry
+          data-testid={'password-input'}
           placeholder='Password'
           value={password}
           onChangeText={onChangePassword}
@@ -44,6 +46,7 @@ export const LoginTemplate = ({
         <S.LoginButton
           disabled={disabled}
           loading={loading}
+          data-testid={'submit-button'}
           onPress={handleSubmit}
         >
           {loading ? (
