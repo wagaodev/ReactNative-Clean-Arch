@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useFormik } from 'formik';
+import { Alert } from 'react-native';
+
+import { createUser } from '../../store';
+import { HandleError } from '../../components';
 
 import * as S from './styles';
-import { Alert } from 'react-native';
-import { createUser, TUser } from '../../store';
-import { HandleError } from '../../components';
 
 export const Login = ({ navigation }) => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -39,7 +40,7 @@ export const Login = ({ navigation }) => {
     } catch (e) {
       return HandleError(e);
     }
-    navigation.navigate('Home');
+    return navigation.navigate('Home');
   };
 
   const handleAlert = (msg: string) => {
