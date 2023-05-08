@@ -1,6 +1,6 @@
 import { css } from 'styled-components/native';
 
-const FONT_FAMILY = 'Inter';
+const FONT_FAMILY = 'Roboto-Regular';
 
 const FONT_WEIGHT_400 = '400';
 const FONT_WEIGHT_700 = '700';

@@ -1,1 +1,2 @@
-export * from './Starter';
+export * from './Home';
+export * from './Login';
