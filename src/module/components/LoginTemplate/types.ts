@@ -1,7 +1,9 @@
 export type TLoginTemplate = {
-  username: string;
+  email: string;
   password: string;
-  onChangeUsername: () => string;
+  emailError: string;
+  passwordError: string;
+  onChangeEmail: () => string;
   onChangePassword: () => string;
   handleSubmit: () => void;
   handleRegister: () => void;

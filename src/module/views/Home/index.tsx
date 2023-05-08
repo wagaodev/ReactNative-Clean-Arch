@@ -10,7 +10,8 @@ export const Home = () => {
       {/* {users.map((user) => (
         <Text>Olá {user.username}</Text>
       ))} */}
-      <Text>Olá {users[0].username}</Text>
+      {/* <Text>Olá {users[0].username}</Text> */}
+      <Text>Olá</Text>
     </View>
   );
 };
