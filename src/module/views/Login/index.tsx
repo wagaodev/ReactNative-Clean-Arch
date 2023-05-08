@@ -23,10 +23,10 @@ export const Login = ({ navigation }) => {
       password: '',
     },
     validationSchema,
-    onSubmit: (values) => handleSubmit(values),
+    onSubmit: async (values) => handleSubmit(values),
   });
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values: { email: string; password: string }) => {
     setLoading(true);
     setDisabled(true);
     try {
