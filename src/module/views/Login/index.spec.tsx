@@ -1,5 +1,10 @@
 import React from 'react';
-import { render, fireEvent, RenderResult } from '@testing-library/react-native';
+import {
+  render,
+  fireEvent,
+  RenderResult,
+  cleanup,
+} from '@testing-library/react-native';
 import { Login } from '.';
 // import { createUser } from '../../store';
 import { Alert } from 'react-native';
@@ -21,6 +26,7 @@ const makeSut = (): TSut => {
 };
 
 describe('Login', () => {
+  afterEach(cleanup);
   it('renders the component with initial props', () => {
     const {
       sut: { getByPlaceholderText, getByText },
